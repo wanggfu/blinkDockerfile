@@ -43,9 +43,10 @@ RUN echo "$USERNAME ALL=(ALL) ALL" >> /etc/sudoers
 #编译工具目录/opt 代码目录~/sunniwell
 VOLUME ["/opt", "/home/$USERNAME/sunniwell"]
 
-#指定当前用户
-USER $USERNAME
+RUN mkdir /var/run/sshd && chmod 0755 /var/run/sshd
 
+#启动sshd
+CMD ["/usr/sbin/sshd", "-D"]
 
 #切换工作目录
 WORKDIR /home/$USERNAME
