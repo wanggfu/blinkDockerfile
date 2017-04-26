@@ -29,7 +29,7 @@ RUN apt-get install -y openssh-server net-tools
 
 #设置环境变量，设置之后，后面的指令和运行时的应用都可以使用
 #用户名为wangguangfu
-ENV	USERNAME=wangguangfu
+ENV	USERNAME=sunniwell
 
 #RUN groupadd $USERNAME && useradd -r -g $USERNAME $USERNAME && mkdir /home/$USERNAME
 RUN useradd --create-home --no-log-init --shell /bin/bash $USERNAME
@@ -41,7 +41,7 @@ RUN echo "$USERNAME ALL=(ALL) ALL" >> /etc/sudoers
 
 #挂载匿名卷
 #编译工具目录/opt 代码目录~/sunniwell
-VOLUME ["/opt", "/home/$USERNAME/sunniwell"]
+#VOLUME ["/opt", "/home/$USERNAME/sunniwell"]
 
 RUN mkdir /var/run/sshd && chmod 0755 /var/run/sshd
 
