@@ -12,6 +12,9 @@ ADD sources.list /etc/apt
 #更新软件包列表和安装编译环境
 RUN apt-get update && apt-get -y install build-essential
 
+#安装terminal library ncurse
+RUN apt-get install libncurses5-dev
+
 #拷贝blink编译依赖包
 ADD install-build-deps-android.sh /opt/install-build-deps-android.sh
 ADD install-build-deps.sh /opt/install-build-deps.sh
